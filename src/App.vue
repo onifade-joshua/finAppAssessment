@@ -63,7 +63,6 @@
       <!-- Sidebar Navigation (Fixed Sidebar) -->
       <v-navigation-drawer v-model="sidebar" app :permanent="$vuetify.display.mdAndUp" temporary color="light">
         <v-list>
-          <v-divider></v-divider>
           <v-list-item link to="/" prepend-icon="mdi-view-dashboard"> Dashboard </v-list-item>
           <v-list-item link to="/transactions" prepend-icon="mdi-bank"> Transactions </v-list-item>
           <v-list-item link to="/settings" prepend-icon="mdi-cog"> Settings </v-list-item>
