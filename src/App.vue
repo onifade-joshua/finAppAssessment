@@ -61,7 +61,7 @@
       </v-app-bar>
 
       <!-- Sidebar Navigation (Collapsible on Mobile) -->
-      <v-navigation-drawer v-model="sidebar" app :permanent="$vuetify.display.mdAndUp" temporary color="light" dark>
+      <v-navigation-drawer v-model="sidebar" app :permanent="$vuetify.display.mdAndUp" temporary color="light">
         <v-list>
           <v-divider></v-divider>
           <v-list-item link to="/" prepend-icon="mdi-view-dashboard"> Dashboard </v-list-item>
