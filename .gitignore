@@ -52,3 +52,5 @@ yarn-debug.log
 yarn-error.log
 # Ignore environment variables
 .env
+# Local Netlify folder
+.netlify
