@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <!-- Show Navbar & Sidebar only  -->
+    <!-- Show Navbar & Sidebar only if not on auth pages -->
     <template v-if="!isAuthPage">
       <!-- Navbar (Top Bar) -->
       <v-app-bar color="primary" dark app elevation="4">
@@ -60,7 +60,7 @@
         </v-menu>
       </v-app-bar>
 
-      <!-- Sidebar Navigation (Collapsible on Mobile) -->
+      <!-- Sidebar Navigation (Fixed Sidebar) -->
       <v-navigation-drawer v-model="sidebar" app :permanent="$vuetify.display.mdAndUp" temporary color="light">
         <v-list>
           <v-divider></v-divider>
@@ -93,8 +93,6 @@
 
     <!-- Chatbot Component (Positioned at Bottom Right) -->
     <ChatBot style="width: 400px;" />
-
-   
   </v-app>
 </template>
 
@@ -141,7 +139,6 @@ export default {
 .search-bar {
   max-width: 250px;
 }
-
 
 @media (max-width: 600px) {
   .search-bar {
