@@ -9,6 +9,7 @@
           <v-icon>mdi-menu</v-icon>
         </v-btn>
 
+        <!-- Updated Title: Keeping only "FinPay" -->
         <v-toolbar-title class="d-flex align-center">
           <span class="font-weight-bold">
             <span style="color: #ffcc00;">Fin</span> <span style="color: red;">Pay</span>
@@ -36,40 +37,9 @@
           </v-badge>
         </v-btn>
 
-        <!-- Popup Menu for Three-Dot Icon -->
-        <v-menu offset-y transition="slide-y-transition">
-          <template v-slot:activator="{ props }">
-            <v-btn icon v-bind="props">
-              <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-          </template>
-
-          <v-list>
-            <v-list-item link @click="$router.push('/edit-profile')">
-              <v-list-item-title>
-                <v-icon left class="mr-2">mdi-account-edit</v-icon> Edit Profile
-              </v-list-item-title>
-            </v-list-item>
-
-            <v-list-item link @click="$router.push('/messages')">
-              <v-list-item-title>
-                <v-icon left class="mr-2">mdi-message</v-icon> Messages
-              </v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+        <!-- Import and use the UserMenu component -->
+        <UserMenu @logout-dialog="logoutDialog = true" />
       </v-app-bar>
-
-      <!-- Sidebar Navigation (Fixed Sidebar) -->
-      <v-navigation-drawer v-model="sidebar" app :permanent="$vuetify.display.mdAndUp" temporary color="light">
-        <v-list>
-          <v-list-item link to="/" prepend-icon="mdi-view-dashboard"> Dashboard </v-list-item>
-          <v-list-item link to="/transactions" prepend-icon="mdi-bank"> Transactions </v-list-item>
-          <v-list-item link to="/settings" prepend-icon="mdi-cog"> Settings </v-list-item>
-          <v-divider></v-divider>
-          <v-list-item @click="logoutDialog = true" prepend-icon="mdi-logout"> Logout </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
     </template>
 
     <!-- Logout Confirmation Dialog -->
@@ -98,11 +68,13 @@
 <script>
 import { useAuthStore } from './stores/auth';
 import ChatBot from '../src/components/ChatBot.vue';
+import UserMenu from './components/UserMenu.vue';
 
 export default {
   name: 'App',
   components: {
     ChatBot,
+    UserMenu,
   },
   data() {
     return {
@@ -134,7 +106,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .search-bar {
   max-width: 250px;
 }
